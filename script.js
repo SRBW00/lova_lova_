@@ -1,15 +1,14 @@
 // Конфигурация альбомов
-// Добавьте имена файлов фотографий в соответствующие массивы
 const albums = {
     kurgan: {
         name: 'Курган',
         folder: 'https://res.cloudinary.com/diqfvgfo3/image/upload/v1771873617',
-        photos: ['1_glioca', '10_i5txzw', '12_qt3bni', '13_pmphnn', '16_gyo2ns', '17_guka4e', '2_xla1gd', '20_kqrrqg', '41_wkt4sh', '42_vqre3t', '43_j5if9e', '5_bofudc', '6_dx1qhd', '7_jci2rf', '8_mmekqi', '9_skydbm', 'IMG_1052_zurrkx', 'IMG_1053_nzs0tn', 'IMG_1055_iwvzbb', 'IMG_1063_h0xlcy', 'IMG_1067_jhljxn', 'IMG_1068_qsikep', 'IMG_1078_zw0u9y', 'IMG_1080_nrnyfp', 'IMG_1086_nul8b0', 'IMG_1088_irt6zp', 'IMG_1097_qnwfzm', 'IMG_1104_mnunav', 'IMG_1104_mnunav', 'IMG_1104_mnunav', 'IMG_1115_wwvbzw', 'IMG_1117_rbgire', 'IMG_1127_lnqb3j', 'IMG_1130_yhhnuc', 'IMG_1154_kdvnoe', 'IMG_1155_uyadoj', 'IMG_1157_jyadd0', 'IMG_1184_mqvddv', 'IMG_1186_o42mge', 'IMG_1217_umkwnr', 'IMG_1218_jb0qca', 'IMG_1247_xgpyzt', 'IMG_1263_ldpq5r', 'IMG_1267_ih1sli', 'IMG_1272_tjw5ha', 'IMG_1273_fc08wb', 'IMG_1298_gybqfc', 'IMG_1311_npxl0g', 'IMG_1338_syrx42', 'IMG_1344_izxtlv', 'IMG_1352_mti9k9', 'IMG_1352_mti9k9', 'IMG_1355_w271j5', 'IMG_1355_w271j5', 'IMG_1365_tzxgym', 'IMG_1375_ua3afx', 'IMG_1384_xs98sd', 'IMG_1390_aw29f2', 'IMG_1394_atnhyb', 'IMG_1401_lxs61u', 'IMG_1514_pglfcr', 'IMG_1531_ai5e8z', 'IMG_1544_hpnylc', 'IMG_1557_cweyjr', 'IMG_1564_lnpzf5', 'IMG_1564_lnpzf5', 'IMG_1600_lm5kko', 'IMG_2175_p8r7qe'] // Добавьте имена файлов: ['фото1.jpg', 'фото2.jpg']
+        photos: ['1_glioca', '10_i5txzw', '12_qt3bni', '13_pmphnn', '16_gyo2ns', '17_guka4e', '2_xla1gd', '20_kqrrqg', '41_wkt4sh', '42_vqre3t', '43_j5if9e', '5_bofudc', '6_dx1qhd', '7_jci2rf', '8_mmekqi', '9_skydbm', 'IMG_1052_zurrkx', 'IMG_1053_nzs0tn', 'IMG_1055_iwvzbb', 'IMG_1063_h0xlcy', 'IMG_1067_jhljxn', 'IMG_1068_qsikep', 'IMG_1078_zw0u9y', 'IMG_1080_nrnyfp', 'IMG_1086_nul8b0', 'IMG_1088_irt6zp', 'IMG_1097_qnwfzm', 'IMG_1104_mnunav', 'IMG_1115_wwvbzw', 'IMG_1117_rbgire', 'IMG_1127_lnqb3j', 'IMG_1130_yhhnuc', 'IMG_1154_kdvnoe', 'IMG_1155_uyadoj', 'IMG_1157_jyadd0', 'IMG_1184_mqvddv', 'IMG_1186_o42mge', 'IMG_1217_umkwnr', 'IMG_1218_jb0qca', 'IMG_1247_xgpyzt', 'IMG_1263_ldpq5r', 'IMG_1267_ih1sli', 'IMG_1272_tjw5ha', 'IMG_1273_fc08wb', 'IMG_1298_gybqfc', 'IMG_1311_npxl0g', 'IMG_1338_syrx42', 'IMG_1344_izxtlv', 'IMG_1352_mti9k9', 'IMG_1355_w271j5', 'IMG_1365_tzxgym', 'IMG_1375_ua3afx', 'IMG_1384_xs98sd', 'IMG_1390_aw29f2', 'IMG_1394_atnhyb', 'IMG_1401_lxs61u', 'IMG_1514_pglfcr', 'IMG_1531_ai5e8z', 'IMG_1544_hpnylc', 'IMG_1557_cweyjr', 'IMG_1564_lnpzf5', 'IMG_1600_lm5kko', 'IMG_2175_p8r7qe']
     },
     tyumen: {
         name: 'Тюмень',
         folder: 'https://res.cloudinary.com/diqfvgfo3/image/upload/v1771873617',
-        photos: ['1_rrhc5s', '2_bhmqmm', '14_l32oen', '14_l32oen', '16_yy4pg6', '19_ebuwlz', '20_pwvx3g', '21_pltpq8', '3_lqvphc', '4_erxjnc', '47_ekfaqh', '48_r3bazr', '58_yv0uyb', '59_rwnarb', '60_gusk1f', '61_mf74gw', '62_ibosic', '63_cuma1y', '64_hianzf', '65_lygq5g', '66_lfo3zq', '67_p6jkcq', '68_cyubwt', '69_xplbro', '70_aegi0m', '71_uwqqke', '72_hbu8xk']
+        photos: ['1_rrhc5s', '2_bhmqmm', '14_l32oen', '16_yy4pg6', '19_ebuwlz', '20_pwvx3g', '21_pltpq8', '3_lqvphc', '4_erxjnc', '47_ekfaqh', '48_r3bazr', '58_yv0uyb', '59_rwnarb', '60_gusk1f', '61_mf74gw', '62_ibosic', '63_cuma1y', '64_hianzf', '65_lygq5g', '66_lfo3zq', '67_p6jkcq', '68_cyubwt', '69_xplbro', '70_aegi0m', '71_uwqqke', '72_hbu8xk']
     },
     dolmatovo: {
         name: 'Долматово',
@@ -28,6 +27,9 @@ const albums = {
     }
 };
 
+// Дата начала отношений (измените на вашу дату)
+const relationshipStartDate = new Date('2024-08-25');
+
 // Текущее состояние
 let currentAlbum = null;
 let currentPhotos = [];
@@ -37,17 +39,117 @@ let currentIndex = 0;
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxCounter = document.getElementById('lightbox-counter');
+const lightboxProgress = document.getElementById('lightbox-progress');
+const lightboxThumbnails = document.getElementById('lightbox-thumbnails');
 const lightboxClose = document.querySelector('.lightbox-close');
 const lightboxPrev = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
 
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
     loadAllAlbums();
     setupNavigation();
     setupLightbox();
     updateYear();
+    updateDaysCounter();
+    setupScrollAnimations();
+    setupParallax();
 });
+
+// Создание частиц для hero-секции
+function createParticles() {
+    const particlesContainer = document.getElementById('hero-particles');
+    const particleCount = 30;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 15 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}%`;
+        
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 10;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Счётчик дней вместе
+function updateDaysCounter() {
+    const daysElement = document.getElementById('days-count');
+    if (!daysElement) return;
+
+    const today = new Date();
+    const diffTime = Math.abs(today - relationshipStartDate);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Анимация счётчика
+    animateCounter(daysElement, 0, diffDays, 2000);
+}
+
+function animateCounter(element, start, end, duration) {
+    const range = end - start;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(start + range * easeOutQuart);
+        
+        element.textContent = current.toLocaleString('ru-RU');
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+// Fade-in анимация при скролле
+function setupScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Параллакс эффект для hero
+function setupParallax() {
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        if (hero && heroContent && scrolled < hero.offsetHeight) {
+            heroContent.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.3}px))`;
+            heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight);
+        }
+    });
+}
 
 // Загрузка всех альбомов
 function loadAllAlbums() {
@@ -83,7 +185,7 @@ function loadAlbum(albumKey, album) {
 // Рендеринг фотографий
 function renderPhotos(container, photos, albumKey) {
     container.innerHTML = '';
-    
+
     if (photos.length === 0) {
         container.innerHTML = `
             <div class="empty-album">
@@ -92,15 +194,57 @@ function renderPhotos(container, photos, albumKey) {
         `;
         return;
     }
-    
+
     photos.forEach((photo, index) => {
         const item = document.createElement('div');
-        item.className = 'photo-item';
+        item.className = 'photo-item fade-in-section';
         item.innerHTML = `
             <img src="${photo.src}" alt="${photo.name}" loading="lazy">
         `;
         item.addEventListener('click', () => openLightbox(albumKey, index));
         container.appendChild(item);
+    });
+
+    // Пересоздаём observer для новых элементов
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    container.querySelectorAll('.photo-item').forEach(item => {
+        observer.observe(item);
+    });
+}
+
+// Текущий активный альбом
+let currentViewedAlbum = null;
+
+// Показать альбом
+function showAlbum(albumKey) {
+    currentViewedAlbum = albumKey;
+    
+    document.querySelectorAll('.album-section').forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    const targetSection = document.getElementById(albumKey);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+        targetSection.classList.add('visible');
+        setTimeout(() => {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
+}
+
+// Скрыть все альбомы
+function hideAllAlbums() {
+    currentViewedAlbum = null;
+    document.querySelectorAll('.album-section').forEach(section => {
+        section.style.display = 'none';
     });
 }
 
@@ -112,90 +256,67 @@ function setupNavigation() {
             e.preventDefault();
             const albumKey = card.getAttribute('data-album');
             if (albumKey && albums[albumKey]) {
-                // Скрываем все альбомы
-                document.querySelectorAll('.album-section').forEach(section => {
-                    section.style.display = 'none';
-                });
-                // Показываем нужный
-                const targetSection = document.getElementById(albumKey);
-                if (targetSection) {
-                    targetSection.style.display = 'block';
-                    // Добавляем hash без скачка
-                    history.pushState(null, null, '#' + albumKey);
-                    setTimeout(() => {
-                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                }
+                showAlbum(albumKey);
+                window.location.hash = albumKey;
             }
         });
     });
 
     // Кнопка скролла к альбомам
-    document.querySelector('.scroll-down').addEventListener('click', (e) => {
-        e.preventDefault();
-        const albumsNav = document.querySelector('.albums-nav');
-        if (albumsNav) {
-            albumsNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
+    const scrollButton = document.querySelector('.scroll-down');
+    if (scrollButton) {
+        scrollButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const albumsNav = document.querySelector('.albums-nav');
+            if (albumsNav) {
+                albumsNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
 
     // Кнопки "Назад к альбомам"
     document.querySelectorAll('.back-to-albums').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            // Скроллим к сетке альбомов
-            const albumsGrid = document.querySelector('.albums-grid');
-            if (albumsGrid) {
-                // Сначала плавный скролл
-                albumsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // После завершения скролла скрываем альбомы
-                setTimeout(() => {
-                    document.querySelectorAll('.album-section').forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    // Очищаем hash после скрытия
-                    history.pushState(null, null, ' ');
-                }, 800);
+            hideAllAlbums();
+            window.location.hash = '';
+            const albumsNav = document.querySelector('.albums-nav');
+            if (albumsNav) {
+                albumsNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
 
     // Обработка изменения hash
+    let hashChangeTimeout = null;
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.slice(1);
-        if (hash && albums[hash]) {
-            document.querySelectorAll('.album-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            const targetSection = document.getElementById(hash);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-                setTimeout(() => {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        } else {
-            // Если hash пустой - скрываем все альбомы
-            document.querySelectorAll('.album-section').forEach(section => {
-                section.style.display = 'none';
-            });
+        
+        // Очищаем предыдущий таймаут
+        if (hashChangeTimeout) clearTimeout(hashChangeTimeout);
+        
+        if (!hash || hash === ' ') {
+            hideAllAlbums();
+            return;
+        }
+        
+        // Проверяем, что hash соответствует альбому
+        if (albums[hash]) {
+            // Небольшая задержка чтобы избежать конфликтов
+            hashChangeTimeout = setTimeout(() => {
+                if (currentViewedAlbum !== hash) {
+                    showAlbum(hash);
+                }
+            }, 50);
         }
     });
 
-    // При загрузке скрываем все альбомы (если нет hash)
-    if (!window.location.hash || window.location.hash === '# ') {
-        document.querySelectorAll('.album-section').forEach(section => {
-            section.style.display = 'none';
-        });
-        // Очищаем hash при загрузке
-        history.replaceState(null, null, ' ');
-    }
-
-    // Проверка hash при загрузке
-    if (window.location.hash && window.location.hash !== '# ') {
-        setTimeout(() => {
-            window.dispatchEvent(new Event('hashchange'));
-        }, 100);
+    // При загрузке страницы
+    const initialHash = window.location.hash.slice(1);
+    if (initialHash && albums[initialHash]) {
+        showAlbum(initialHash);
+    } else {
+        hideAllAlbums();
     }
 }
 
@@ -204,18 +325,16 @@ function setupLightbox() {
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', () => navigatePhoto(-1));
     lightboxNext.addEventListener('click', () => navigatePhoto(1));
-    
-    // Закрытие по клику вне фото
+
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
-    
-    // Управление клавишами
+
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
-        
+
         switch (e.key) {
             case 'Escape':
                 closeLightbox();
@@ -234,33 +353,79 @@ function setupLightbox() {
 function openLightbox(albumKey, index) {
     const photos = window[`photos_${albumKey}`];
     if (!photos || photos.length === 0) return;
-    
+
     currentAlbum = albumKey;
     currentIndex = index;
     currentPhotos = photos;
-    
+
+    createThumbnails(index);
     updateLightboxImage();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
+// Создание миниатюр
+function createThumbnails(activeIndex) {
+    lightboxThumbnails.innerHTML = '';
+
+    currentPhotos.forEach((photo, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = `lightbox-thumb ${idx === activeIndex ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${photo.src}" alt="${photo.name}">`;
+        thumb.addEventListener('click', function() {
+            currentIndex = idx;
+            updateLightboxImage();
+        });
+        lightboxThumbnails.appendChild(thumb);
+    });
+}
+
+// Обновление миниатюр
+function updateThumbnails() {
+    document.querySelectorAll('.lightbox-thumb').forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentIndex);
+    });
+}
+
 // Обновление изображения в лайтбоксе
 function updateLightboxImage() {
     if (!currentPhotos[currentIndex]) return;
-    
+
     const photo = currentPhotos[currentIndex];
-    lightboxImg.src = photo.src;
+    
+    // Анимация смены фото
+    lightboxImg.style.opacity = '0';
+    lightboxImg.style.transform = 'scale(0.95)';
+    
+    setTimeout(() => {
+        lightboxImg.src = photo.src;
+        lightboxImg.style.opacity = '1';
+        lightboxImg.style.transform = 'scale(1)';
+    }, 150);
+    
     lightboxCaption.textContent = photo.name;
+    
+    // Обновляем счётчик
+    const current = currentIndex + 1;
+    const total = currentPhotos.length;
+    lightboxCounter.textContent = `${current} / ${total}`;
+    
+    // Обновляем прогресс-бар
+    const progress = (current / total) * 100;
+    lightboxProgress.style.width = `${progress}%`;
+    
+    // Обновляем миниатюры
+    updateThumbnails();
 }
 
 // Навигация по фото
 function navigatePhoto(direction) {
     if (!currentPhotos.length) return;
-    
+
     currentIndex += direction;
     if (currentIndex < 0) currentIndex = currentPhotos.length - 1;
     if (currentIndex >= currentPhotos.length) currentIndex = 0;
-    
+
     updateLightboxImage();
 }
 
