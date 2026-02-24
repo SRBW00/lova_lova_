@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши истории любви</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Наши истории любви</h1>
+            <p class="subtitle">Моменты, которые мы храним в сердце</p>
+            <div class="heart-animation">❤</div>
+        </div>
+        <a href="#scroll-to-albums" class="scroll-down">↓ Листайте вниз</a>
+    </header>
+
+    <nav class="albums-nav">
+        <div class="container">
+            <h2 class="section-title">Наши альбомы</h2>
+            <div class="albums-grid">
+                <a href="#kurgan" class="album-card" data-album="kurgan">
+                    <div class="album-image">
+                        <div class="placeholder-icon">🏛️</div>
+                    </div>
+                    <div class="album-info">
+                        <h3>Курган</h3>
+                        <p>Прогулки по любимому городу</p>
+                        <span class="photo-count" id="count-kurgan">0 фото</span>
+                    </div>
+                </a>
+
+                <a href="#tyumen" class="album-card" data-album="tyumen">
+                    <div class="album-image">
+                        <div class="placeholder-icon">🌉</div>
+                    </div>
+                    <div class="album-info">
+                        <h3>Тюмень</h3>
+                        <p>Тёплые воспоминания</p>
+                        <span class="photo-count" id="count-tyumen">0 фото</span>
+                    </div>
+                </a>
+
+                <a href="#dolmatovo" class="album-card" data-album="dolmatovo">
+                    <div class="album-image">
+                        <div class="placeholder-icon">🏡</div>
+                    </div>
+                    <div class="album-info">
+                        <h3>Далматово</h3>
+                        <p>Уютные моменты</p>
+                        <span class="photo-count" id="count-dolmatovo">0 фото</span>
+                    </div>
+                </a>
+
+                <a href="#wedding" class="album-card" data-album="wedding">
+                    <div class="album-image">
+                        <div class="placeholder-icon">💒</div>
+                    </div>
+                    <div class="album-info">
+                        <h3>Свадьба</h3>
+                        <p>Самый важный день</p>
+                        <span class="photo-count" id="count-wedding">0 фото</span>
+                    </div>
+                </a>
+
+                <a href="#other" class="album-card" data-album="other">
+                    <div class="album-image">
+                        <div class="placeholder-icon">✨</div>
+                    </div>
+                    <div class="album-info">
+                        <h3>Невошедшее</h3>
+                        <p>Остальные прекрасные моменты</p>
+                        <span class="photo-count" id="count-other">0 фото</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="gallery-section">
+        <div class="container">
+            <!-- Альбом Курган -->
+            <section id="kurgan" class="album-section">
+                <div class="album-header">
+                    <button class="back-to-albums">← Назад к альбомам</button>
+                    <h2>🏛️ Курган</h2>
+                </div>
+                <div class="photo-grid" id="grid-kurgan"></div>
+            </section>
+
+            <!-- Альбом Тюмень -->
+            <section id="tyumen" class="album-section">
+                <div class="album-header">
+                    <button class="back-to-albums">← Назад к альбомам</button>
+                    <h2>🌉 Тюмень</h2>
+                </div>
+                <div class="photo-grid" id="grid-tyumen"></div>
+            </section>
+
+            <!-- Альбом Долматово -->
+            <section id="dolmatovo" class="album-section">
+                <div class="album-header">
+                    <button class="back-to-albums">← Назад к альбомам</button>
+                    <h2>🏡 Далматово</h2>
+                </div>
+                <div class="photo-grid" id="grid-dolmatovo"></div>
+            </section>
+
+            <!-- Альбом Свадьба -->
+            <section id="wedding" class="album-section">
+                <div class="album-header">
+                    <button class="back-to-albums">← Назад к альбомам</button>
+                    <h2>💒 Свадьба</h2>
+                </div>
+                <div class="photo-grid" id="grid-wedding"></div>
+            </section>
+
+            <!-- Альбом Невошедшее -->
+            <section id="other" class="album-section">
+                <div class="album-header">
+                    <button class="back-to-albums">← Назад к альбомам</button>
+                    <h2>✨ Невошедшее</h2>
+                </div>
+                <div class="photo-grid" id="grid-other"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Модальное окно для просмотра фото -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">❮</button>
+        <button class="lightbox-next">❯</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Сделано с любовью ❤</p>
+            <p class="footer-year"></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
