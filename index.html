@@ -8,7 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Фоновые декоративные элементы -->
+    <div class="bg-decorations">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+    <div class="bg-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
     <header class="hero">
+        <div class="hero-particles" id="hero-particles"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Наши истории любви</h1>
@@ -18,7 +31,26 @@
         <a href="#scroll-to-albums" class="scroll-down">↓ Листайте вниз</a>
     </header>
 
-    <nav class="albums-nav">
+    <!-- Раздел "О нас" -->
+    <section class="about-section fade-in-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="about-title">Наша история</h2>
+                <p class="about-text">
+                    Каждая фотография в этом альбоме — это маленькая история, особый момент, 
+                    который мы хотим сохранить навсегда. От первых прогулок по городу до 
+                    самого важного дня в нашей жизни. Здесь собраны воспоминания, которые 
+                    греют наши сердца и напоминают о том, как прекрасна наша любовь.
+                </p>
+                <div class="days-counter">
+                    <span class="days-number" id="days-count">0</span>
+                    <span class="days-label">дней вместе</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="albums-nav fade-in-section" id="scroll-to-albums">
         <div class="container">
             <h2 class="section-title">Наши альбомы</h2>
             <div class="albums-grid">
@@ -35,7 +67,7 @@
 
                 <a href="#tyumen" class="album-card" data-album="tyumen">
                     <div class="album-image">
-                        <div class="placeholder-icon">🌉</div>
+                        <div class="placeholder-icon">🏙️</div>
                     </div>
                     <div class="album-info">
                         <h3>Тюмень</h3>
@@ -83,46 +115,46 @@
     <main class="gallery-section">
         <div class="container">
             <!-- Альбом Курган -->
-            <section id="kurgan" class="album-section">
+            <section id="kurgan" class="album-section fade-in-section">
                 <div class="album-header">
                     <button class="back-to-albums">← Назад к альбомам</button>
-                    <h2>🏛️ Курган</h2>
+                    <h2><span class="emoji-icon">🏛️</span> Курган</h2>
                 </div>
                 <div class="photo-grid" id="grid-kurgan"></div>
             </section>
 
             <!-- Альбом Тюмень -->
-            <section id="tyumen" class="album-section">
+            <section id="tyumen" class="album-section fade-in-section">
                 <div class="album-header">
                     <button class="back-to-albums">← Назад к альбомам</button>
-                    <h2>🌉 Тюмень</h2>
+                    <h2><span class="emoji-icon">🏙️</span> Тюмень</h2>
                 </div>
                 <div class="photo-grid" id="grid-tyumen"></div>
             </section>
 
             <!-- Альбом Долматово -->
-            <section id="dolmatovo" class="album-section">
+            <section id="dolmatovo" class="album-section fade-in-section">
                 <div class="album-header">
                     <button class="back-to-albums">← Назад к альбомам</button>
-                    <h2>🏡 Далматово</h2>
+                    <h2><span class="emoji-icon">🏡</span> Далматово</h2>
                 </div>
                 <div class="photo-grid" id="grid-dolmatovo"></div>
             </section>
 
             <!-- Альбом Свадьба -->
-            <section id="wedding" class="album-section">
+            <section id="wedding" class="album-section fade-in-section">
                 <div class="album-header">
                     <button class="back-to-albums">← Назад к альбомам</button>
-                    <h2>💒 Свадьба</h2>
+                    <h2><span class="emoji-icon">💒</span> Свадьба</h2>
                 </div>
                 <div class="photo-grid" id="grid-wedding"></div>
             </section>
 
             <!-- Альбом Невошедшее -->
-            <section id="other" class="album-section">
+            <section id="other" class="album-section fade-in-section">
                 <div class="album-header">
                     <button class="back-to-albums">← Назад к альбомам</button>
-                    <h2>✨ Невошедшее</h2>
+                    <h2><span class="emoji-icon">✨</span> Невошедшее</h2>
                 </div>
                 <div class="photo-grid" id="grid-other"></div>
             </section>
@@ -135,9 +167,14 @@
         <button class="lightbox-prev">❮</button>
         <button class="lightbox-next">❯</button>
         <div class="lightbox-content">
+            <div class="lightbox-counter" id="lightbox-counter">1 / 10</div>
             <img src="" alt="" id="lightbox-img">
             <p class="lightbox-caption" id="lightbox-caption"></p>
+            <div class="lightbox-progress">
+                <div class="lightbox-progress-bar" id="lightbox-progress"></div>
+            </div>
         </div>
+        <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
     </div>
 
     <footer class="site-footer">
