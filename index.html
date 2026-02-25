@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наши истории любви</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -31,21 +31,128 @@
         <a href="#scroll-to-albums" class="scroll-down">↓ Листайте вниз</a>
     </header>
 
-    <!-- Раздел "О нас" -->
+    <!-- Раздел "О нас" с важными датами -->
     <section class="about-section fade-in-section" id="about">
         <div class="container">
             <div class="about-content">
-                <h2 class="about-title">Наша история</h2>
+                <h2 class="about-title">Наша история и важные даты</h2>
                 <p class="about-text">
-                    Каждая фотография в этом альбоме — это маленькая история, особый момент, 
-                    который мы хотим сохранить навсегда. От первых прогулок по городу до 
-                    самого важного дня в нашей жизни. Здесь собраны воспоминания, которые 
+                    Каждая фотография в этом альбоме — это маленькая история, особый момент,
+                    который мы хотим сохранить навсегда. От первых прогулок по городу до
+                    самого важного дня в нашей жизни. Здесь собраны воспоминания, которые
                     греют наши сердца и напоминают о том, как прекрасна наша любовь.
                 </p>
-                <div class="days-counter">
-                    <span class="days-number" id="days-count">0</span>
-                    <span class="days-label">дней вместе</span>
+
+                <!-- Важные даты -->
+                <div class="dates-grid">
+                    <!-- Дата знакомства -->
+                    <div class="date-card" data-date="met">
+                        <div class="date-header" onclick="toggleDateCard('met')">
+                            <span class="date-icon">💕</span>
+                            <h3 class="date-title">День знакомства</h3>
+                            <span class="date-value" id="date-met-days">0</span>
+                            <span class="date-label">дней знакомы</span>
+                        </div>
+                        <div class="date-content" id="date-content-met">
+                            <div class="envelopes-container">
+                                <div class="envelope" onclick="openEnvelope(this, 'his', 'met')">
+                                    <div class="envelope-back"></div>
+                                    <div class="envelope-pocket"></div>
+                                    <div class="envelope-flap"></div>
+                                    <div class="envelope-label-container">
+                                        <span class="envelope-label">Его записка</span>
+                                    </div>
+                                </div>
+                                <div class="envelope" onclick="openEnvelope(this, 'her', 'met')">
+                                    <div class="envelope-back"></div>
+                                    <div class="envelope-pocket"></div>
+                                    <div class="envelope-flap"></div>
+                                    <div class="envelope-label-container">
+                                        <span class="envelope-label">Её записка</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Дата начала отношений -->
+                    <div class="date-card" data-date="dating">
+                        <div class="date-header" onclick="toggleDateCard('dating')">
+                            <span class="date-icon">💑</span>
+                            <h3 class="date-title">Начало отношений</h3>
+                            <span class="date-value" id="date-dating-days">0</span>
+                            <span class="date-label">дней вместе</span>
+                        </div>
+                        <div class="date-content" id="date-content-dating">
+                            <div class="envelopes-container">
+                                <div class="envelope" onclick="openEnvelope(this, 'his', 'dating')">
+                                    <div class="envelope-back"></div>
+                                    <div class="envelope-pocket"></div>
+                                    <div class="envelope-flap"></div>
+                                    <div class="envelope-label-container">
+                                        <span class="envelope-label">Его записка</span>
+                                    </div>
+                                </div>
+                                <div class="envelope" onclick="openEnvelope(this, 'her', 'dating')">
+                                    <div class="envelope-back"></div>
+                                    <div class="envelope-pocket"></div>
+                                    <div class="envelope-flap"></div>
+                                    <div class="envelope-label-container">
+                                        <span class="envelope-label">Её записка</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Дата свадьбы -->
+                    <div class="date-card" data-date="wedding">
+                        <div class="date-header" onclick="toggleDateCard('wedding')">
+                            <span class="date-icon">💒</span>
+                            <h3 class="date-title">День свадьбы</h3>
+                            <span class="date-value" id="date-wedding-days">0</span>
+                            <span class="date-label">дней как муж и жена</span>
+                        </div>
+                        <div class="date-content" id="date-content-wedding">
+                            <div class="envelopes-container">
+                                <div class="envelope" onclick="openEnvelope(this, 'his', 'wedding')">
+                                    <div class="envelope-back"></div>
+                                    <div class="envelope-pocket"></div>
+                                    <div class="envelope-flap"></div>
+                                    <div class="envelope-label-container">
+                                        <span class="envelope-label">Его записка</span>
+                                    </div>
+                                </div>
+                                <div class="envelope" onclick="openEnvelope(this, 'her', 'wedding')">
+                                    <div class="envelope-back"></div>
+                                    <div class="envelope-pocket"></div>
+                                    <div class="envelope-flap"></div>
+                                    <div class="envelope-label-container">
+                                        <span class="envelope-label">Её записка</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно для записок (одно на все карточки) -->
+    <div class="note-display" id="note-display">
+        <div class="note-paper">
+            <p class="note-text" id="note-text"></p>
+            <button class="close-note" onclick="closeNote()">×</button>
+        </div>
+    </div>
+
+    <!-- Раздел с любимыми фразами -->
+    <section class="phrases-section fade-in-section" id="phrases">
+        <div class="container">
+            <h2 class="section-title">Наши любимые фразы</h2>
+            <div class="phrases-container" id="phrases-container">
+                <!-- Фразы будут загружены через JavaScript -->
             </div>
         </div>
     </section>
@@ -184,6 +291,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
