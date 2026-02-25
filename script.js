@@ -30,6 +30,47 @@ const albums = {
 // Дата начала отношений (измените на вашу дату)
 const relationshipStartDate = new Date('2024-08-25');
 
+// ============================================
+// КОНФИГУРАЦИЯ ВАЖНЫХ ДАТ
+// ============================================
+const importantDates = {
+    met: new Date('2018-10-26'),      // Дата знакомства
+    dating: new Date('2024-08-25'),   // Дата начала отношений
+    wedding: new Date('2025-05-15')   // Дата свадьбы
+};
+
+// ============================================
+// ЗАПИСКИ В КОНВЕРТЫ (отредактируйте текст здесь)
+// ============================================
+const notes = {
+    met: {
+        his: `Здесь будет ваша записка о дне знакомства...\n\nНапишите свои воспоминания о том, как вы познакомились.`,
+        her: `Здесь будет её записка о дне знакомства...\n\nОна сможет написать свои воспоминания об этом дне.`
+    },
+    dating: {
+        his: `Здесь будет ваша записка о начале отношений...\n\nОпишите ваши чувства и воспоминания о том дне, когда вы начали встречаться.`,
+        her: `Здесь будет её записка о начале отношений...\n\nЕё воспоминания о том, как всё начиналось.`
+    },
+    wedding: {
+        his: `Здесь будет ваша записка о дне свадьбы...\n\nВаши эмоции, чувства и воспоминания о самом важном дне.`,
+        her: `Здесь будет её записка о дне свадьбы...\n\nЕё воспоминания о свадебном дне.`
+    }
+};
+
+// ============================================
+// ЛЮБИМЫЕ ФРАЗЫ (добавляйте новые фразы сюда)
+// ============================================
+const favoritePhrases = [
+    'Додох',
+    'Я когда тороплюсь, я бегаю',
+    'Чмоня',
+    'Не щёлкай хлебальничком',
+		'Мы посовещались и я решила',
+		'Кот сдохнула',
+		'Переговоры вознабнаблят',
+		'Чехоле'
+];
+
 // Текущее состояние
 let currentAlbum = null;
 let currentPhotos = [];
@@ -46,6 +87,9 @@ const lightboxClose = document.querySelector('.lightbox-close');
 const lightboxPrev = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
 
+// Текущее состояние для записок
+let currentNoteDate = null;
+
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
@@ -56,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDaysCounter();
     setupScrollAnimations();
     setupParallax();
+    updateImportantDates();
+    loadFavoritePhrases();
 });
 
 // Создание частиц для hero-секции
@@ -445,3 +491,142 @@ function updateYear() {
         yearElement.textContent = `© ${new Date().getFullYear()} Все права защищены`;
     }
 }
+
+// ============================================
+// ФУНКЦИИ ДЛЯ ВАЖНЫХ ДАТ
+// ============================================
+
+// Обновление счётчиков дней для важных дат
+function updateImportantDates() {
+    const today = new Date();
+    
+    // Дата знакомства
+    const metDaysElement = document.getElementById('date-met-days');
+    if (metDaysElement) {
+        const metDays = Math.floor((today - importantDates.met) / (1000 * 60 * 60 * 24));
+        animateCounter(metDaysElement, 0, metDays, 2000);
+    }
+    
+    // Дата начала отношений
+    const datingDaysElement = document.getElementById('date-dating-days');
+    if (datingDaysElement) {
+        const datingDays = Math.floor((today - importantDates.dating) / (1000 * 60 * 60 * 24));
+        animateCounter(datingDaysElement, 0, datingDays, 2000);
+    }
+    
+    // Дата свадьбы
+    const weddingDaysElement = document.getElementById('date-wedding-days');
+    if (weddingDaysElement) {
+        const weddingDays = Math.floor((today - importantDates.wedding) / (1000 * 60 * 60 * 24));
+        animateCounter(weddingDaysElement, 0, weddingDays, 2000);
+    }
+}
+
+// Загрузка любимых фраз
+function loadFavoritePhrases() {
+    const container = document.getElementById('phrases-container');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    favoritePhrases.forEach((phrase, index) => {
+        const phraseCard = document.createElement('div');
+        phraseCard.className = 'phrase-card fade-in-section';
+        phraseCard.style.animationDelay = `${index * 0.1}s`;
+        
+        const phraseText = document.createElement('p');
+        phraseText.className = 'phrase-text';
+        phraseText.textContent = phrase;
+        
+        phraseCard.appendChild(phraseText);
+        container.appendChild(phraseCard);
+    });
+    
+    // Пересоздаём observer для новых элементов
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    container.querySelectorAll('.phrase-card').forEach(card => {
+        observer.observe(card);
+    });
+}
+
+// Открытие/закрытие карточки с датой
+function toggleDateCard(dateKey) {
+    const card = document.querySelector(`.date-card[data-date="${dateKey}"]`);
+    if (!card) return;
+    
+    // Закрываем другие карточки
+    document.querySelectorAll('.date-card').forEach(c => {
+        if (c !== card) {
+            c.classList.remove('expanded');
+        }
+    });
+    
+    // Переключаем текущую
+    card.classList.toggle('expanded');
+}
+
+// Открытие конверта
+function openEnvelope(envelopeElement, author, dateKey) {
+    // Если конверт уже открыт, ничего не делаем
+    if (envelopeElement.classList.contains('opened')) return;
+    
+    // Открываем конверт
+    envelopeElement.classList.add('opened');
+    
+    // Получаем текст записки
+    const noteText = notes[dateKey][author];
+    
+    // Показываем записку с небольшой задержкой
+    setTimeout(() => {
+        showNote(noteText);
+    }, 400);
+}
+
+// Показ записки
+function showNote(text) {
+    const noteDisplay = document.getElementById('note-display');
+    const noteTextElement = document.getElementById('note-text');
+    
+    if (!noteDisplay || !noteTextElement) return;
+    
+    noteTextElement.textContent = text;
+    noteDisplay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Закрытие записки
+function closeNote() {
+    const noteDisplay = document.getElementById('note-display');
+    if (!noteDisplay) return;
+    
+    noteDisplay.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // Закрываем все конверты
+    document.querySelectorAll('.envelope').forEach(env => {
+        env.classList.remove('opened');
+    });
+    
+    currentNoteDate = null;
+}
+
+// Закрытие записки по клику на фон
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('note-display')) {
+        closeNote();
+    }
+});
+
+// Закрытие записки по Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeNote();
+    }
+});
