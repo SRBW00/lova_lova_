@@ -905,31 +905,96 @@ body {
     margin-bottom: 40px;
 }
 
-.days-counter {
-    display: inline-block;
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 2px solid var(--primary-light);
-    border-radius: 25px;
-    padding: 30px 50px;
-    box-shadow: var(--shadow);
+/* Конверты - новая структура */
+.envelopes-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 15px 0;
 }
 
-.days-number {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: block;
+.envelope {
+    position: relative;
+    width: 160px;
+    height: 110px;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.days-label {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    margin-top: 10px;
+.envelope:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+.envelope.opened {
+    pointer-events: none;
+}
+
+/* Задняя часть конверта */
+.envelope-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f48fb1 0%, #f06292 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+    z-index: 1;
+}
+
+/* Карман конверта (передняя часть с вырезом) */
+.envelope-pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    background: linear-gradient(135deg, #ec407a, #e91e63);
+    border-radius: 0 0 8px 8px;
+    z-index: 3;
+    clip-path: polygon(0 0, 50% 35%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Клапан конверта */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, #f06292, #e91e63);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 4;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+
+.envelope.opened .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+/* Контейнер для надписи */
+.envelope-label-container {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.envelope-label {
+    font-size: 0.75rem;
+    color: var(--white);
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
 }
 
 /* Responsive */
@@ -996,6 +1061,282 @@ body {
 @keyframes titleGlow {
     0%, 100% { filter: drop-shadow(0 0 5px rgba(233, 30, 99, 0.3)); }
     50% { filter: drop-shadow(0 0 20px rgba(233, 30, 99, 0.6)); }
+}
+
+/* ========================================
+   Конверты и записки
+   ======================================== */
+.dates-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.date-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.date-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
+}
+
+.date-header {
+    padding: 30px 25px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(123, 31, 162, 0.1));
+    transition: var(--transition);
+}
+
+.date-card.expanded .date-header {
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.15), rgba(123, 31, 162, 0.15));
+}
+
+.date-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.date-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.date-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+}
+
+.date-label {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 5px;
+    display: block;
+}
+
+.date-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.date-card.expanded .date-content {
+    max-height: 500px;
+    padding: 25px;
+}
+
+/* Записка */
+.note-display {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.note-display.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.note-paper {
+    background: #fffef0;
+    padding: 40px 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    background-image: 
+        linear-gradient(#e1e1ff 1px, transparent 1px),
+        linear-gradient(90deg, #e1e1ff 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: noteSlideIn 0.4s ease;
+}
+
+@keyframes noteSlideIn {
+    from {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.note-text {
+    font-family: 'Playfair Display', serif, cursive;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+}
+
+.close-note {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.close-note:hover {
+    color: var(--primary-dark);
+    transform: scale(1.2);
+}
+
+/* ========================================
+   Раздел с любимыми фразами
+   ======================================== */
+.phrases-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(248, 187, 217, 0.3));
+    position: relative;
+    z-index: 1;
+}
+
+.phrases-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.phrase-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--primary-light);
+    border-radius: 20px;
+    padding: 10px 18px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    animation: phrasePop 0.5s ease;
+    display: inline-block;
+    width: auto;
+}
+
+@keyframes phrasePop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.phrase-card:hover {
+    transform: translateY(-8px) scale(1.02) rotate(0deg) !important;
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
+    border-color: var(--primary-color);
+}
+
+.phrase-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    text-align: center;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.phrase-text::before {
+    content: '"';
+    font-size: 2rem;
+    color: var(--primary-color);
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.phrase-text::after {
+    content: '"';
+    font-size: 2rem;
+    color: var(--primary-color);
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+/* Responsive для новых секций */
+@media (max-width: 1024px) {
+    .dates-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .date-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .envelopes-container {
+        gap: 15px;
+    }
+
+    .envelope {
+        width: 120px;
+        height: 85px;
+    }
+
+    .envelope-label {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+
+    .note-paper {
+        padding: 30px 25px;
+    }
+
+    .phrase-card {
+        padding: 18px 25px;
+        max-width: 100%;
+    }
+
+    .phrase-text {
+        font-size: 1rem;
+    }
 }
 
 /* Дополнительная анимация для карточек при скролле */
