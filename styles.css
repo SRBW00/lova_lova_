@@ -1178,12 +1178,32 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
     position: relative;
-    background-image: 
+    background-image:
         linear-gradient(#e1e1ff 1px, transparent 1px),
         linear-gradient(90deg, #e1e1ff 1px, transparent 1px);
     background-size: 30px 30px;
     animation: noteSlideIn 0.4s ease;
+}
+
+.note-paper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.note-paper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.note-paper::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.note-paper::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
 }
 
 @keyframes noteSlideIn {
@@ -1199,8 +1219,8 @@ body {
 
 .note-text {
     font-family: 'Playfair Display', serif, cursive;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--text-dark);
     white-space: pre-wrap;
     margin-bottom: 20px;
@@ -1327,6 +1347,11 @@ body {
 
     .note-paper {
         padding: 30px 25px;
+        max-height: 70vh;
+    }
+
+    .note-paper::-webkit-scrollbar {
+        width: 6px;
     }
 
     .phrase-card {
